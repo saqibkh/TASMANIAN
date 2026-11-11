@@ -10,7 +10,7 @@ name: GPU Simulator
 on:
   workflow_dispatch:
   push:
-    branches: [ verify-gpu-sim ]
+    branches: [ break-gpu-sim ]
   pull_request:
     branches: [ master ]
     paths:
@@ -77,4 +77,4 @@ jobs:
         run: cmake --build build -j3
 
       - name: Test
-        run: vgpu run ctest --test-dir build --output-on-failure --no-tests=error -R "SparseGrids|AddonTests"
+        run: vgpu run ctest --test-dir build -V --no-tests=error -R SparseGridsAcceleration

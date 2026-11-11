@@ -465,7 +465,7 @@ __global__ void tasgpu_dseq_eval_sharedpoints(int dims, int num_x, int num_point
                     v *= cache[offsets[j] + num_x * cpoints[j][height] + id_x];
                 }
 
-                result[num_points * id_x + id_p + height] = v;
+                result[num_points * id_x + id_p + height] = 1.01 * v;
 
                 id_x += (1024 / SHORT);
             }
